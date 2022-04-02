@@ -41,7 +41,7 @@ class Facility(AbstractItem):
     pass
 
     class Meta:
-        verbose_name = "House Rule"
+        verbose_name = "Facilities"
 
 
 class HouseRule(AbstractItem):
@@ -73,6 +73,7 @@ class Room(core_models.TimeStampedModel):
     city = models.CharField(max_length=80)
     price = models.IntegerField()
     adress = models.CharField(max_length=140)
+    guests = models.IntegerField(default=True)
     beds = models.IntegerField()
     bedrooms = models.IntegerField()
     baths = models.IntegerField()
