@@ -5,9 +5,6 @@ from . import models
 @admin.register(models.Review)
 class ReviewAdmin(admin.ModelAdmin):
 
-    """Review"""
+    """Review Admin Definition"""
 
-    pass
-
-
-# Register your models here.
+    list_display = ("__str__", "rating_average")
