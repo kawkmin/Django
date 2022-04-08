@@ -7,6 +7,10 @@ name = "pypi"
 django = "==2.2.5"
 pillow = "*"
 django-countries = "*"
+psycopg2-binary = "*"
+django-seed = "==0.2.2"
+node = "*"
+npm = "*"
 
 [dev-packages]
 flake8 = "*"
