@@ -18,12 +18,19 @@ class photoInline(admin.TabularInline):
     model = models.Photo
 
 
+class songInline(admin.TabularInline):
+    model = models.Song
+
+
 @admin.register(models.Room)
 class RoomAdmin(admin.ModelAdmin):
 
     """Room Admin Definition"""
 
-    inlines = (photoInline,)
+    inlines = (
+        photoInline,
+        songInline,
+    )
 
     fieldsets = (
         (
@@ -107,3 +114,18 @@ class PhotoAdmin(admin.ModelAdmin):
         return mark_safe(f'<img width="50px" src="{obj.file.url}"/>')
 
     get_thumbnail.short_description = "Thumbnaul"
+
+
+@admin.register(models.Song)
+class songAdmin(admin.ModelAdmin):
+
+    """song Admin Definition"""
+
+    list_display = ("__str__", "get_thumbnail")
+
+    def get_thumbnail(self, obj):
+        return mark_safe(
+            f'<audio controls><source src="{obj.sfile.url}" type"audio/mpeg"></audio>'
+        )
+
+    get_thumbnail.short_description = "play"

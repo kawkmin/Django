@@ -63,6 +63,15 @@ class Photo(core_models.TimeStampedModel):
         return self.caption
 
 
+class Song(models.Model):
+    sfile = models.FileField(upload_to="musics/")
+    caption = models.CharField(max_length=80)
+    room = models.ForeignKey("Room", related_name="songs", on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.caption
+
+
 class Room(core_models.TimeStampedModel):
 
     """Room Model Definition"""

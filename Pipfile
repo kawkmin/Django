@@ -11,6 +11,8 @@ psycopg2-binary = "*"
 django-seed = "==0.2.2"
 node = "*"
 npm = "*"
+djangorestframework = "*"
+django-filter = "*"
 
 [dev-packages]
 flake8 = "*"
